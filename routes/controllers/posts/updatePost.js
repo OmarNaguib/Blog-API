@@ -4,7 +4,7 @@ const Post = require("../../../models/Post");
 const updatePost = asyncHandler(async (req, res, next) => {
   const post = new Post({
     title: req.body.title,
-    postText: req.body.title,
+    postText: req.body.postText,
     author: "me",
     createdAt: new Date(),
     isPublished: req.body.isPublished,
