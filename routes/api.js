@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 const createPost = require("./controllers/posts/createPost");
-const deletePost = require("./controllers/posts/createPost");
+const deletePost = require("./controllers/posts/deletePost");
 const updatePost = require("./controllers/posts/updatePost");
 const getPost = require("./controllers/posts/getPost");
 const getPosts = require("./controllers/posts/getPosts");
