@@ -1,7 +1,13 @@
 const asyncHandler = require("express-async-handler");
+const Post = require("../../../models/Post");
 
-const rename = asyncHandler(async (req, res, next) => {
-  res.send("respond with a resource");
+const deletePost = asyncHandler(async (req, res, next) => {
+  try {
+    await Post.findByIdAndDelete(req.params.postId);
+    res.sendStatus(200);
+  } catch (error) {
+    res.sendStatus(400);
+  }
 });
 
-module.exports = rename;
+module.exports = deletePost;
