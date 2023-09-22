@@ -4,7 +4,8 @@ const { model, Schema } = require("mongoose");
 const postSchema = new Schema({
   title: { type: String, required: true },
   postText: { type: String, required: true },
-  author: { type: Schema.Types.ObjectId, required: true, ref: "User" },
+  // author: { type: Schema.Types.ObjectId, required: true, ref: "User" },
+  author: { type: String, required: true },
   createdAt: { type: Date, required: true },
   isPublished: { type: Boolean, required: true },
 });
