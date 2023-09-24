@@ -9,7 +9,7 @@ const getPost = require("./controllers/posts/getPost");
 const getPosts = require("./controllers/posts/getPosts");
 
 const createComment = require("./controllers/comments/createComment");
-const deleteComment = require("./controllers/comments/createComment");
+const deleteComment = require("./controllers/comments/deleteComment");
 const updateComment = require("./controllers/comments/updateComment");
 const getComment = require("./controllers/comments/getComment");
 const getComments = require("./controllers/comments/getComments");
