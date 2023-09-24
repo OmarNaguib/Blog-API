@@ -1,7 +1,22 @@
 const asyncHandler = require("express-async-handler");
+const Comment = require("../../../models/Comment");
 
-const rename = asyncHandler(async (req, res, next) => {
-  res.send("respond with a resource");
+const createComment = asyncHandler(async (req, res, next) => {
+  const comment = new Comment({
+    commentText: req.body.commentText,
+    author: req.body.author,
+    createdAt: new Date(),
+    post: req.params.postId,
+  });
+  console.log(req.params.postId);
+  try {
+    const result = await comment.save();
+    res.sendStatus(200);
+  } catch (error) {
+    console.log(comment);
+    console.log("lkasfjglksjf;lkg", error);
+    res.sendStatus(400);
+  }
 });
 
-module.exports = rename;
+module.exports = createComment;

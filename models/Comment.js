@@ -1,13 +1,13 @@
 const { model, Schema } = require("mongoose");
 // TODO: Add date formatting: luxon
 
-const postSchema = new Schema({
+const commentSchema = new Schema({
   commentText: { type: String, required: true },
   author: { type: String, required: true },
   createdAt: { type: Date, required: true },
-  post: { type: Schema.Types.ObjectId, ref: "Post", required: true },
+  post: { type: Schema.Types.ObjectId, ref: "Comment", required: true },
 });
 
-const Post = model("Post", postSchema);
+const Comment = model("Comment", commentSchema);
 
-module.exports = Post;
+module.exports = Comment;
