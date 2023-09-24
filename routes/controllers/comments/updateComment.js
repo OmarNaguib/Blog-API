@@ -10,11 +10,9 @@ const updateComment = asyncHandler(async (req, res, next) => {
     _id: req.params.commentId,
   });
   try {
-    console.log("hlkfsjg;lksjfkl;");
     await Comment.findByIdAndUpdate(req.params.commentId, comment);
     res.sendStatus(200);
   } catch (error) {
-    console.log(error);
     res.sendStatus(400);
   }
 });
