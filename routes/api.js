@@ -1,6 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 
 const router = express.Router();
+
+router.use(cors());
 
 const createPost = require("./controllers/posts/createPost");
 const deletePost = require("./controllers/posts/deletePost");
