@@ -10,13 +10,8 @@ const updatePost = asyncHandler(async (req, res, next) => {
     isPublished: req.body.isPublished,
     _id: req.params.postId,
   });
-  try {
-    await Post.findByIdAndUpdate(req.params.postId, post);
-    res.sendStatus(200);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(400);
-  }
+  await Post.findByIdAndUpdate(req.params.postId, post);
+  res.sendStatus(200);
 });
 
 module.exports = updatePost;

@@ -8,12 +8,8 @@ const createComment = asyncHandler(async (req, res, next) => {
     createdAt: new Date(),
     post: req.params.postId,
   });
-  try {
-    const result = await comment.save();
-    res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(400);
-  }
+  const result = await comment.save();
+  res.sendStatus(200);
 });
 
 module.exports = createComment;

@@ -10,12 +10,9 @@ const createPost = asyncHandler(async (req, res, next) => {
     createdAt: new Date(),
     isPublished: req.body.isPublished,
   });
-  try {
-    const result = await post.save();
-    res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(400);
-  }
+
+  const result = await post.save();
+  res.sendStatus(200);
 });
 
 module.exports = createPost;

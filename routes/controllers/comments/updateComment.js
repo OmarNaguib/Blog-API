@@ -9,12 +9,8 @@ const updateComment = asyncHandler(async (req, res, next) => {
     post: req.params.postId,
     _id: req.params.commentId,
   });
-  try {
-    await Comment.findByIdAndUpdate(req.params.commentId, comment);
-    res.sendStatus(200);
-  } catch (error) {
-    res.sendStatus(400);
-  }
+  await Comment.findByIdAndUpdate(req.params.commentId, comment);
+  res.sendStatus(200);
 });
 
 module.exports = updateComment;

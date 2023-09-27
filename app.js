@@ -30,4 +30,11 @@ app.use("/", indexRouter);
 app.use("/api/posts", apiRouter);
 app.use("/users", usersRouter);
 
+// error handler
+app.use((err, req, res, next) => {
+  console.log(err.message);
+  console.log(err);
+  res.sendStatus(err.status || 500);
+});
+
 module.exports = app;
