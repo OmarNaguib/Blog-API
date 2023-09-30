@@ -27,13 +27,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/api/posts", apiRouter);
+app.use("/api", apiRouter);
 app.use("/users", usersRouter);
 
 // error handler
 app.use((err, req, res, next) => {
   console.log(err.message);
-  console.log(err);
+  // console.log(err);
   res.sendStatus(err.status || 500);
 });
 

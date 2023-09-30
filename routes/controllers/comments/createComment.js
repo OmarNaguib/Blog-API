@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Comment = require("../../../models/Comment");
 
 const createComment = asyncHandler(async (req, res, next) => {
+  console.log(req.body);
   const comment = new Comment({
     commentText: req.body.commentText,
     author: req.body.author,
