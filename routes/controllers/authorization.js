@@ -8,7 +8,7 @@ const login = asyncHandler((req, res, next) => {
     jwt.sign(
       { user: "admin" },
       process.env.SECRET_KEY,
-      { expiresIn: 30 },
+      // { expiresIn: 30 },
       (err, token) => {
         res.json({ token, expirationTime: 30 });
       }
@@ -23,4 +23,13 @@ const getToken = asyncHandler((req, res, next) => {
   req.token = token;
   next();
 });
-module.exports = { login, getToken };
+
+const verifyToken = asyncHandler((req, res, next) => {
+  jwt.verify(req.token, process.env.SECRET_KEY, (err, authData) => {
+    if (err) res.sendStatus(403);
+    else {
+      next();
+    }
+  });
+});
+module.exports = { login, getToken, verifyToken };

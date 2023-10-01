@@ -17,7 +17,7 @@ const updateComment = require("./controllers/comments/updateComment");
 const getComment = require("./controllers/comments/getComment");
 const getComments = require("./controllers/comments/getComments");
 
-const login = require("./controllers/login");
+const { login, getToken, verifyToken } = require("./controllers/authorization");
 /* GET home page. */
 // router.get("/", (req, res, next) => {
 //   res.render("index", { title: "Express" });
@@ -25,7 +25,7 @@ const login = require("./controllers/login");
 
 router.get("/posts/", getPosts);
 router.get("/posts/:postId", getPost);
-router.post("/posts/", createPost);
+router.post("/posts/", getToken, verifyToken, createPost);
 router.put("/posts/:postId", updatePost);
 router.delete("/posts/:postId", deletePost);
 
