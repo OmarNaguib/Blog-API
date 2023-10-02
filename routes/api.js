@@ -26,8 +26,8 @@ const { login, getToken, verifyToken } = require("./controllers/authorization");
 router.get("/posts/", getPosts);
 router.get("/posts/:postId", getPost);
 router.post("/posts/", getToken, verifyToken, createPost);
-router.put("/posts/:postId", updatePost);
-router.delete("/posts/:postId", deletePost);
+router.put("/posts/:postId", getToken, verifyToken, updatePost);
+router.delete("/posts/:postId", getToken, verifyToken, deletePost);
 
 router.get("/posts/:postId/comments", getComments);
 router.get("/posts/:postId/comments/:commentId", getComment);
@@ -36,5 +36,8 @@ router.put("/posts/:postId/comments/:commentId", updateComment);
 router.delete("/posts/:postId/comments/:commentId", deleteComment);
 
 router.get("/login", login);
+router.post("/login", getToken, verifyToken, (req, res) => {
+  res.sendStatus(200);
+});
 
 module.exports = router;

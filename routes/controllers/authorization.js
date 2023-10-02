@@ -32,4 +32,5 @@ const verifyToken = asyncHandler((req, res, next) => {
     }
   });
 });
+
 module.exports = { login, getToken, verifyToken };
